@@ -1,0 +1,32 @@
+# Project: Approx
+# Makefile created by Dev-C++ 4.9.8.5
+
+CPP  = g++.exe -D__DEBUG__
+CC   = gcc.exe -D__DEBUG__
+WINDRES = windres.exe
+RES  = 
+OBJ  = ../obj/main.o ../obj/approx.o $(RES)
+LINKOBJ  = ../obj/main.o ../obj/approx.o $(RES)
+LIBS =  -L"D:/Programme/Dev-Cpp/lib"  
+INCS =  -I"D:/Programme/Dev-Cpp/include" 
+CXXINCS =  -I"D:/Programme/Dev-Cpp/include/c++"  -I"D:/Programme/Dev-Cpp/include/c++/mingw32"  -I"D:/Programme/Dev-Cpp/include/c++/backward"  -I"D:/Programme/Dev-Cpp/include" 
+BIN  = ../approx.exe
+CXXFLAGS = $(CXXINCS)   -fexpensive-optimizations -O3 -g3
+CFLAGS = $(INCS)  -fexpensive-optimizations -O3 -g3
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before ../approx.exe all-after
+
+
+clean: clean-custom
+	rm -f $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "..\approx.exe" $(LIBS)
+
+../obj/main.o: ../main.c
+	$(CC) -c ../main.c -o ../obj/main.o $(CFLAGS)
+
+../obj/approx.o: ../approx.asm
+	../../nasmw.exe -f win32 ../approx.asm -o ../obj/approx.o
