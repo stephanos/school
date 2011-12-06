@@ -1,7 +1,4 @@
-#Programm zum Bestimmen von Primzahlen (in bestimmten Zahlenabständen) mit c++
-# © ® Stephan Behnke ™
-# Homepage: www.tcltk.de.vu
-# E-Mail: stephan.behnke@gmx.net
+#Programm zum Bestimmen von Primzahlen (in bestimmten Zahlenabstï¿½nden) mit c++
 
 
 #====================

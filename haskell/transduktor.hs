@@ -1,7 +1,4 @@
 -- Definiert einen Transduktor für Fahrkarten
--- © ® Stephan Behnke ™
--- Homepage: www.stephan.behnke.de.vu
--- E-Mail: stephan.behnke@gmx.net
 
 
 

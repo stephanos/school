@@ -1,8 +1,4 @@
 -- Zeichnet einen Barnsley-Farn
--- © ® Stephan Behnke ™
--- Homepage: www.stephan.behnke.de.vu
--- E-Mail: stephan.behnke@gmx.net
-
 
 import GraphicsUtils
 -- import "/usr/lib/hugs/graphics-2.0.4/lib/x11/GraphicsUtils"

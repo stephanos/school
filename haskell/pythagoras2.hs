@@ -1,7 +1,4 @@
--- Zeichnet einen Pythagoras-Baum
--- © ® Stephan Behnke ™
--- Homepage: www.stephan.behnke.de.vu
--- E-Mail: stephan.behnke@gmx.net
+-- Zeichnet einen Pythagoras-Baums
 
 
 import GraphicsUtils

@@ -1,9 +1,3 @@
-/***********************************
- * © Stephan Behnke
- * Homepage: www.tcltk.de.vu
- * E-Mail: stephan.behnke@gmx.net
- ***********************************/
-
 #include <time.h>
 #include <stdlib.h>
 #include <stdio.h>

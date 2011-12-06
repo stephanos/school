@@ -1,7 +1,4 @@
-# Programm zum automatischen Erstellen einer zufälligen Musikabfolge
-# © ® Stephan Behnke ™
-# Homepage: www.tcltk.de.vu
-# E-Mail: stephan.behnke@gmx.net
+# Programm zum automatischen Erstellen einer zufï¿½lligen Musikabfolge
 
 proc getSongs {pfad selected} {
 
@@ -77,12 +74,12 @@ proc kopieren {selected} {
 	set widgets [winfo children .]
 	foreach element $widgets {destroy $element}
 
-    	label .l1 -width 50 -text "Löschen der Musikdateien ..."
+    	label .l1 -width 50 -text "Lï¿½schen der Musikdateien ..."
     	label .l2 -width 50
     	pack  .l1 .l2 -expand true -fill both
 	update;
 
-	# MP3s löschen
+	# MP3s lï¿½schen
 	cd $dest
  	set songs [glob -nocomplain *.mp3]
  	foreach s $songs { 	 
@@ -91,28 +88,28 @@ proc kopieren {selected} {
 
 	label .l1 -width 50 -text "Suche Musikdateien ..."
 
-    	# Musikstücke suchen
+    	# Musikstï¿½cke suchen
     	set songs [split [getSongs $src $selected] "?"]
 
     	# Anzahl der Songs
     	set anzahl [llength $songs]
 
-    	# Liste für benutzte MP3s erstellen
+    	# Liste fï¿½r benutzte MP3s erstellen
     	set used {}
 
-    	# Größe der Auswahl
+    	# Grï¿½ï¿½e der Auswahl
     	set size 0
 
     	set max 1043169280
 
     	catch {
-		# MP3s auswählen
+		# MP3s auswï¿½hlen
     	 	while {$size < $max} {
 
 			.l2 config -text "[expr int(($size/$max.0)*100)] %"
 			update
 
-			# Song auswählen
+			# Song auswï¿½hlen
 			set song [lindex $songs [expr int(($anzahl-1)*rand())]]
 
 			# Schon benutzt?
@@ -137,7 +134,7 @@ proc kopieren {selected} {
 				# Kopieren
 				file copy -force "$src$song" "$dest$dir/[file tail $song]"
 
-    				# Größe dazu addieren
+    				# Grï¿½ï¿½e dazu addieren
       	      	incr size [file size "$src$song"]
 
             		lappend used $song
@@ -182,7 +179,7 @@ proc kopieren {selected} {
  }
  pack [checkbutton .main.oben.$j.$i -text "Zufall" -variable "Zufall"] -anchor w
 
- wm title . "Gewünschte Bands auswählen"
+ wm title . "Gewï¿½nschte Bands auswï¿½hlen"
  wm resizable . no no
 
  # Button
@@ -205,4 +202,4 @@ proc kopieren {selected} {
  pack .main.unten.b -pady 5
 
 
- # © ® Stephan Behnke ™
+ # ï¿½ ï¿½ Stephan Behnke ï¿½

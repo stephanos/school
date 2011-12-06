@@ -1,7 +1,4 @@
 -- Definiert einen Akzeptor zur Überprüfung der Teilbarkeit durch 4
--- © ® Stephan Behnke ™
--- Homepage: www.stephan.behnke.de.vu
--- E-Mail: stephan.behnke@gmx.net
 
 
 

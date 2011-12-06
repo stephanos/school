@@ -1,7 +1,4 @@
 # Programm zum automatischen editieren der MP3-Namen
-# © ® Stephan Behnke ™
-# Homepage: www.tcltk.de.vu
-# E-Mail: stephan.behnke@gmx.net
 
 proc einlesen {pfad} {
 
@@ -36,7 +33,7 @@ proc einlesen {pfad} {
     label .l2 -width 50
     pack  .l1 .l2 -expand true -fill both
 
-    # Musikstücke suchen
+    # Musikstï¿½cke suchen
     set songs [split [einlesen $src] "?"]
 
     # Anzahl der Songs
@@ -57,7 +54,7 @@ proc einlesen {pfad} {
 
 
 			#regsub -- "Dresden Tolls" $name "Dresden Dolls" name
-			#regsub -- "\\.rzte" $name " Ärzte" name
+			#regsub -- "\\.rzte" $name " ï¿½rzte" name
 
 
       		set name [string tolower $name]
@@ -99,4 +96,4 @@ proc einlesen {pfad} {
   unset songs
   exit
 
-  # © ® Stephan Behnke ™
+  # ï¿½ ï¿½ Stephan Behnke ï¿½

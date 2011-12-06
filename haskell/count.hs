@@ -1,8 +1,4 @@
 -- Grundlegende Listenanwendungen
--- © ® Stephan Behnke ™
--- Homepage: www.stephan.behnke.de.vu
--- E-Mail: stephan.behnke@gmx.net
-
 
 -- elemNenn - Gibt die Anzahl der Vorkommen eines Elementes zurück
 elemNenn :: Int -> [Int] -> Int

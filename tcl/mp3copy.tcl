@@ -1,7 +1,4 @@
 # Programm zum automatischen editieren der MP3-Namen
-# © ® Stephan Behnke ™
-# Homepage: www.tcltk.de.vu
-# E-Mail: stephan.behnke@gmx.net
 
 proc kopieren {pfad} {
 
@@ -41,4 +38,4 @@ proc kopieren {pfad} {
   # Beenden
   exit
 
-  # © ® Stephan Behnke ™
+  # ï¿½ ï¿½ Stephan Behnke ï¿½

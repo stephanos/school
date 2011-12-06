@@ -1,14 +1,11 @@
 #Programm zum Veranschaulichen eines Wegsuche-Algorithmuses (A*)
-# © ® Stephan Behnke ™
-# Homepage: www.tcltk.de.vu
-# E-Mail: stephan.behnke@gmx.net
 
 set felder 18
 set aktion "S"
 set ausgabe "g"
 
 #============================
-#Prozedur für eine neue Karte
+#Prozedur fï¿½r eine neue Karte
 #============================
 proc new {} {
 global feld felder aktion ziel size start ausgabe felder
@@ -24,7 +21,7 @@ global feld felder aktion ziel size start ausgabe felder
  set start {1 1}
  set ziel [list [expr $felder-2] [expr $felder-2]]
 
- #Alles mit 1en füllen
+ #Alles mit 1en fï¿½llen
  for {set i 0} {$i < [expr $felder*$felder]} {incr i} {
        lappend feld 1
  }
@@ -105,7 +102,7 @@ global feld felder size ziel start
   #Umrechnen
   set xy [list [expr int($x/$size)] [expr int($y/$size)]]
 
-  #Prüfen
+  #Prï¿½fen
   set pos [expr [lindex $xy 0]+([lindex $xy 1]*$felder)]
   if {[lindex $feld $pos] == 2} {return 0}
   if {[lindex $xy 0]<=0 || [lindex $xy 0]>=[expr $felder-1]} {return 0}
@@ -122,7 +119,7 @@ global feld felder size ziel start
 }
 
 #==========================================
-#Prozedur um neues Ziel für Figur zu setzen
+#Prozedur um neues Ziel fï¿½r Figur zu setzen
 #==========================================
 proc setzen {x y text} {
 global ziel size feld felder start
@@ -137,7 +134,7 @@ global ziel size feld felder start
   #Umrechnen
   set xy [list [expr int($x/$size)] [expr int($y/$size)]]
 
-  #Prüfen
+  #Prï¿½fen
   set pos [expr [lindex $xy 0]+([lindex $xy 1]*$felder)]
   if {[lindex $feld $pos]==1} {return 0}
   if {[lindex $start 0]==[lindex $xy 0] && [lindex $start 1]==[lindex $xy 1]} {return 0}
@@ -197,10 +194,10 @@ global start ziel felder feld size langsam ausgabe
         #BestNode aus OpenList entfernen
         set OpenList [concat [lrange $OpenList 0 [expr $j-1]] [lrange $OpenList [expr $j+4] [expr [llength $OpenList]-1]]]
 
-	#BestNode zur ClosedList hinzufügen
+	#BestNode zur ClosedList hinzufï¿½gen
         set ClosedList [concat $ClosedList $BestNode]
 
-        #Die Nächsten Punkte ausmachen (sternförmig)
+        #Die Nï¿½chsten Punkte ausmachen (sternfï¿½rmig)
         set pos [expr [lindex $BestNode 0]+([lindex $BestNode 1]*$felder)]
         for {set i -1} {$i<2} {incr i} {
         	for {set j -1} {$j<2} {incr j} {
@@ -217,14 +214,14 @@ global start ziel felder feld size langsam ausgabe
                         	set y [expr [lindex $BestNode 1]+$i]
                         	lappend temp $x $y
 
-                        	#Eck-Kästchen-Überschreitungen ausschließen
+                        	#Eck-Kï¿½stchen-ï¿½berschreitungen ausschlieï¿½en
                                 if {$j && $i} {
 
 					#Positionen bestimmen
                                         set xx [expr [lindex $BestNode 0]-$x]
                                         set yy [expr [lindex $BestNode 1]-$y]
 
-                                        #Prüfen
+                                        #Prï¿½fen
                                         if {[lindex $feld [expr $punkt+$xx]] || [lindex $feld [expr $punkt+$yy*$felder]]} {
                                         	continue
                                         }
@@ -259,7 +256,7 @@ global start ziel felder feld size langsam ausgabe
 					#h berechnen
                         		lappend temp [expr 10*(abs($x-[lindex $ziel 0])+abs($y-[lindex $ziel 1]))]
 
-                                        #Zu OpenList hinzufügen
+                                        #Zu OpenList hinzufï¿½gen
                         		set OpenList [concat $OpenList $temp]
 
                                         #Parent definieren
@@ -309,7 +306,7 @@ global start ziel felder feld size langsam ausgabe
 #================================
 proc updaten {x y BestNode Parents} {
 
- #Parent ändern
+ #Parent ï¿½ndern
  for {set i 0} {$i<[llength $Parents]} {incr i 4} {
        	if {[lindex $Parents [expr $i+2]]==$x && [lindex $Parents [expr $i+3]]==$y} {
         	set Parents [lreplace $Parents $i $i [lindex $BestNode 0]]
@@ -370,7 +367,7 @@ global size ziel start ausgabe
  		if {[lindex $liste $i]==[lindex $start 0] && [lindex $liste [expr $i+1]]==[lindex $start 1]} {continue}
  		if {[lindex $liste $i]==[lindex $ziel 0] && [lindex $liste [expr $i+1]]==[lindex $ziel 1]} {continue}
 
- 		#Feld räumen
+ 		#Feld rï¿½umen
  		object [expr ([lindex $liste $i]+0.5)*$size] [expr ([lindex $liste [expr $i+1]]+0.5)*$size] 0 0
 
  		#Einzeichnen
@@ -391,7 +388,7 @@ global ziel start size
  set pos [find [lindex $ziel 0] [lindex $ziel 1] $liste]
  set felder 0
 
- #Zurückbewegen und zeichnen
+ #Zurï¿½ckbewegen und zeichnen
  while {[lrange $liste $pos [expr $pos+1]] != $start} {
 
  	#Einzeichnen
@@ -430,7 +427,7 @@ proc find {x y liste} {
 }
 
 #==============================
-#Ünerprüft Liste nach Einträgen
+#ï¿½nerprï¿½ft Liste nach Eintrï¿½gen
 #==============================
 proc g {x y liste} {
 
@@ -452,7 +449,7 @@ proc g {x y liste} {
 proc draw {} {
 global feld size felder
 
- #Löschen
+ #Lï¿½schen
  catch [.rechts.c delete wall]
  catch [.rechts.c delete ende]
 
@@ -491,24 +488,24 @@ global ziel start size
 }
 
 #====================================
-#Prozedur um die Feldgröße anzupassen
+#Prozedur um die Feldgrï¿½ï¿½e anzupassen
 #====================================
 proc feld {} {
 global felder size felderanzahl
 
- #Neue Feldgröße speichern
+ #Neue Feldgrï¿½ï¿½e speichern
  set felder $felderanzahl
 
- #Maße berechnen
+ #Maï¿½e berechnen
  set size [expr 450/$felder]
 
- #Maße ändern
+ #Maï¿½e ï¿½ndern
  .rechts.c configure -height [expr $felder*$size] -width [expr $felder*$size]
 
 }
 
 #===============================
-#Prozedur zum Öffnen einer Datei
+#Prozedur zum ï¿½ffnen einer Datei
 #===============================
 proc openFile {} {
 global feld start ziel
@@ -525,7 +522,7 @@ global feld start ziel
  #Datei auslesen
  set data [read $stream]
 
- #Zurücksetzen
+ #Zurï¿½cksetzen
  new
 
  #Inhalt ausgeben
@@ -535,10 +532,10 @@ global feld start ziel
  set ziel [lindex $data 2]
  draw
 
- #Kanal schließen
+ #Kanal schlieï¿½en
  close $stream
 
- #Variabeln löschen
+ #Variabeln lï¿½schen
  unset stream
  unset data
 
@@ -565,11 +562,11 @@ global feld start ziel
  #String in Datei schreiben
  puts -nonewline $stream $data
 
- #Datenstrom schließen
+ #Datenstrom schlieï¿½en
  flush $stream
  close $stream
 
- #Variabeln löschen
+ #Variabeln lï¿½schen
  unset stream
  unset pfad
 
@@ -673,4 +670,4 @@ global feld start ziel
 
  new
 
-# © ® Stephan Behnke ™
+# ï¿½ ï¿½ Stephan Behnke ï¿½

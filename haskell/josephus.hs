@@ -1,7 +1,4 @@
 -- Abstrakter Datentyp Josephus-Kreis
--- © ® Stephan Behnke ™
--- Homepage: www.stephan.behnke.de.vu
--- E-Mail: stephan.behnke@gmx.net
 
 
 -- Datentyp definieren

@@ -1,7 +1,4 @@
 -- Binäre, natürliche Zahl
--- © ® Stephan Behnke ™
--- Homepage: www.stephan.behnke.de.vu
--- E-Mail: stephan.behnke@gmx.net
 
 
 module BinN where

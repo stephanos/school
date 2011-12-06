@@ -1,7 +1,4 @@
 # Programm zum automatischen editieren der MP3-Namen
-# © ® Stephan Behnke ™
-# Homepage: www.tcltk.de.vu
-# E-Mail: stephan.behnke@gmx.net
 
 proc einlesen {pfad} {
 
@@ -50,4 +47,4 @@ proc einlesen {pfad} {
 
 	console show
 	puts $str
-  # © ® Stephan Behnke ™
+  # ï¿½ ï¿½ Stephan Behnke ï¿½

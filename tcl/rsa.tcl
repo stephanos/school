@@ -1,10 +1,9 @@
-#Programm zum Verschlüsseln von Dateien
-# © ® Stephan Behnke ™
+#Programm zum Verschlï¿½sseln von Dateien
 
  #Liste der Buchstaben
- set letters { " " a b c d e f g h i j k l m n o p q r s t u v w x y z ä ö ü "." ","}
+ set letters { " " a b c d e f g h i j k l m n o p q r s t u v w x y z ï¿½ ï¿½ ï¿½ "." ","}
 
- #Liste der Zahlen in Wörtern
+ #Liste der Zahlen in Wï¿½rtern
  set numbers { null eins zwei drei vier fuenf sechs sieben acht neun }
 
  set e ""
@@ -14,7 +13,7 @@
  set q ""
 
 #===============================
-#Prozedur zum Öffnen einer Datei
+#Prozedur zum ï¿½ffnen einer Datei
 #===============================
 proc openFile { seite } {
 
@@ -24,7 +23,7 @@ proc openFile { seite } {
  #Fehlerkontrolle
  if { $pfad == "" } { return }
 
- #Inhalt der Textfelder löschen
+ #Inhalt der Textfelder lï¿½schen
  .links.text delete 1.0 end
  .rechts.text delete 1.0 end
 
@@ -37,10 +36,10 @@ proc openFile { seite } {
  #Inhalt ausgeben
  .$seite.text insert end $text
 
- #Kanal schließen
+ #Kanal schlieï¿½en
  close $stream
 
- #Variabeln löschen
+ #Variabeln lï¿½schen
  unset pfad
  unset text
  unset stream
@@ -67,11 +66,11 @@ proc saveFile { seite } {
  #String in Datei schreiben
  puts -nonewline $stream $data
 
- #Datenstrom schließen
+ #Datenstrom schlieï¿½en
  flush $stream
  close $stream
 
- #Variabeln löschen
+ #Variabeln lï¿½schen
  unset pfad
  unset data
  unset stream
@@ -79,7 +78,7 @@ proc saveFile { seite } {
 }
 
 #=============================================
-#Prozedur zum Ent- und Verschlüsseln der Datei
+#Prozedur zum Ent- und Verschlï¿½sseln der Datei
 #=============================================
 proc codieren {art} {
 global e d n
@@ -99,7 +98,7 @@ global e d n
  .mitte.3.ent configure -state normal
  .mitte.4.schl configure -state normal
 
- #Löschen
+ #Lï¿½schen
  unset art
 
 }
@@ -159,7 +158,7 @@ global e d p q n
 }
 
 #===============================================
-#Prozedur zum Überprüfen auf Primzahleigenschaft
+#Prozedur zum ï¿½berprï¿½fen auf Primzahleigenschaft
 #===============================================
 proc check {zahl1 zahl2} {
 
@@ -179,14 +178,14 @@ proc check {zahl1 zahl2} {
  	#Bei den Zahlen 2,3 und 5 sofort als Primzahl ausgeben
  	if {$var==3||$var==5}  {return 1}
 
-	#Schleife bis zur Hälfte der zu testenden Zahl ($var)
+	#Schleife bis zur Hï¿½lfte der zu testenden Zahl ($var)
 	while {[expr $div*2+1] <= $var}  {
 
 		if {[expr $var % $div] == 0} {
 			#Schleife beenden
 			return 0
 		} else {
-			#Divisor um 2 erhöhen
+			#Divisor um 2 erhï¿½hen
 			incr div 2
 		}
 	}
@@ -197,7 +196,7 @@ proc check {zahl1 zahl2} {
 }
 
 #=============================================
-#Prozedur fürs Toplevel für Schlüsselerzeugung
+#Prozedur fï¿½rs Toplevel fï¿½r Schlï¿½sselerzeugung
 #=============================================
 proc schluessel {} {
 global e d p q n
@@ -208,7 +207,7 @@ global e d p q n
 
  set d ""; set e ""; set p ""; set q ""; set n ""
 
- #Altes Fenster ggf. löschen
+ #Altes Fenster ggf. lï¿½schen
  catch [destroy .ver]
 
  #Toplevel erstellen
@@ -238,12 +237,12 @@ global e d p q n
 
  #Fenster konfigurieren
  wm resizable .ver no no
- wm title .ver "Schlüssel generieren"
+ wm title .ver "Schlï¿½ssel generieren"
 
  vwait ok
 
  #Stand ausgeben
- .menuleiste.aktuell configure -text "Öffentlicher Schlüssel lautet ($e, $n)"
+ .menuleiste.aktuell configure -text "ï¿½ffentlicher Schlï¿½ssel lautet ($e, $n)"
  update
 
  set p ""; set q ""
@@ -251,7 +250,7 @@ global e d p q n
 }
 
 #======================================================
-#Prozedur zum Vorbereiten (fürs Codieren) eines Strings
+#Prozedur zum Vorbereiten (fï¿½rs Codieren) eines Strings
 #======================================================
 proc vorbereiten {String} {
 global letters numbers
@@ -262,7 +261,7 @@ global letters numbers
  #Ersetzen
  regsub -all "\t" $String " " String
  regsub -all "\n" $String " " String
- regsub -all "ß" $String "ss" String
+ regsub -all "ï¿½" $String "ss" String
  for { set i 0 } { $i < 10 } { incr i } {
 	regsub -all "$i" $String  "[lindex $numbers $i]" String
  }
@@ -279,7 +278,7 @@ global letters numbers
 	}
  }
 
- #String übergeben
+ #String ï¿½bergeben
  set String $temp
  unset temp
 
@@ -288,7 +287,7 @@ global letters numbers
 }
 
 #================================================
-#Prozedur fürs Umwandeln von Zahlen in Buchstaben
+#Prozedur fï¿½rs Umwandeln von Zahlen in Buchstaben
 #================================================
 proc number2letter {String} {
 global letters numbers
@@ -312,12 +311,12 @@ global letters numbers
  set liste $temp
  set String [join $liste]
 
- #Wörter durch Zahlen ersetzen
+ #Wï¿½rter durch Zahlen ersetzen
  for { set i 0 } { $i < 10 } { incr i } {
 	regsub -all "[lindex $numbers $i]" $String  "$i" String
  }
 
- #Löschen
+ #Lï¿½schen
  unset liste
  unset temp
 
@@ -326,7 +325,7 @@ global letters numbers
 }
 
 #===========================================
-#Prozedur zum Errechnen der einzelnen Blöcke
+#Prozedur zum Errechnen der einzelnen Blï¿½cke
 #===========================================
 proc berechne {zahl potenz n} {
 
@@ -334,7 +333,7 @@ proc berechne {zahl potenz n} {
  set ergebnisse {}
  set temp $potenz
 
- #Potenz in 2er Potenzen auflösen
+ #Potenz in 2er Potenzen auflï¿½sen
  for {set i 1} {$temp>1} {incr i} {
 
 	set hoch [expr int(pow(2,$i))]
@@ -347,7 +346,7 @@ proc berechne {zahl potenz n} {
         }
  }
 
- #Rest hinzufügen
+ #Rest hinzufï¿½gen
  if {$temp} {lappend potenzen 1}
 
  set erg [expr $zahl%$n]
@@ -369,7 +368,7 @@ proc berechne {zahl potenz n} {
         set erg [expr ($erg * [lindex $ergebnisse $i])%$n]
  }
 
- #Löschen
+ #Lï¿½schen
  unset zahl
  unset temp
  unset potenz
@@ -398,7 +397,7 @@ global letters numbers
  set laenge [llength $zeichen]
  set krypt {}
 
- #Ver- & Entschlüsseln
+ #Ver- & Entschlï¿½sseln
  for {set i 0} {$i < $laenge} {incr i} {
 
  	#Zahl einlesen
@@ -426,7 +425,7 @@ global letters numbers
  .menuleiste.aktuell configure -text "100% abgeschlossen"
  update
 
- #Variabeln löschen
+ #Variabeln lï¿½schen
  unset zeichen
  unset potenz
 
@@ -456,12 +455,12 @@ global letters numbers
  menu .oben.datei.m.unver -tearoff 0
  menu .oben.datei.m.ver -tearoff 0
 
- .oben.datei.m add cascade -label "Unverschlüsseltes " -menu .oben.datei.m.unver
- .oben.datei.m add cascade -label "Verschlüsseltes " -menu .oben.datei.m.ver
+ .oben.datei.m add cascade -label "Unverschlï¿½sseltes " -menu .oben.datei.m.unver
+ .oben.datei.m add cascade -label "Verschlï¿½sseltes " -menu .oben.datei.m.ver
 
- .oben.datei.m.unver add command -label "Öffnen" -command "openFile links"
+ .oben.datei.m.unver add command -label "ï¿½ffnen" -command "openFile links"
  .oben.datei.m.unver add command -label "Speichern Unter" -command "saveFile links"
- .oben.datei.m.ver add command -label "Öffnen" -command "openFile rechts"
+ .oben.datei.m.ver add command -label "ï¿½ffnen" -command "openFile rechts"
  .oben.datei.m.ver add command -label "Speichern Unter" -command "saveFile rechts"
 
  .oben.datei.m add command -label "Beenden" -command exit
@@ -473,7 +472,7 @@ global letters numbers
  label .mitte.2.ld -text "d: "
  label .mitte.2.ln -text "n: "
  label .mitte.4.leer -height 2
- label .menuleiste.aktuell -text "Zum Verschlüsseln Schlüsselpaar (e, n) oder zum Entschlüsseln Schlüsselpaar (d, n) eingeben!" -relief sunken -width 120
+ label .menuleiste.aktuell -text "Zum Verschlï¿½sseln Schlï¿½sselpaar (e, n) oder zum Entschlï¿½sseln Schlï¿½sselpaar (d, n) eingeben!" -relief sunken -width 120
 
 #====
 #Text
@@ -503,9 +502,9 @@ global letters numbers
 #======
 #Button
 #======
- button .mitte.1.ver -text "Verschlüsseln ->" -command { if {[.links.text get 1.0 end]!="\n" && $n!="" && $e!="" && $n!=0} {codieren "ver"}}
- button .mitte.3.ent -text "<- Entschlüsseln" -command { if {[.rechts.text get 1.0 end]!="\n" && $n!="" && $d!="" && $n!=0} {codieren "ent"}}
- button .mitte.4.schl -text "Schlüssel generieren" -command {schluessel; catch [destroy .ver]}
+ button .mitte.1.ver -text "Verschlï¿½sseln ->" -command { if {[.links.text get 1.0 end]!="\n" && $n!="" && $e!="" && $n!=0} {codieren "ver"}}
+ button .mitte.3.ent -text "<- Entschlï¿½sseln" -command { if {[.rechts.text get 1.0 end]!="\n" && $n!="" && $d!="" && $n!=0} {codieren "ent"}}
+ button .mitte.4.schl -text "Schlï¿½ssel generieren" -command {schluessel; catch [destroy .ver]}
 
 #========
 #Bindings
@@ -540,6 +539,6 @@ global letters numbers
  pack .mitte.3.ent -padx 10
  pack .mitte.4.leer .mitte.4.schl -side top -padx 5
 
- wm title . "RSA Verschlüsselung"
+ wm title . "RSA Verschlï¿½sselung"
 
-# © ® Stephan Behnke ™
+# ï¿½ ï¿½ Stephan Behnke ï¿½

@@ -1,7 +1,7 @@
-001  # Programm zum Erstellen von Wertetabellen für Schaltungen
-002  # © ® Stephan Behnke ™
-003  # Homepage: www.tcltk.de.vu
-004  # E-Mail: stephan.behnke@gmx.net
+001  # Programm zum Erstellen von Wertetabellen fï¿½r Schaltungen
+002
+003
+004
 005
 006  set letters {a b c d e f g h i j k l m n o p q r s t u v w x y z}
 007  set zeichen { ( ) ! & | < = > " "}
@@ -22,7 +22,7 @@
 022  }
 023
 024  #==================================
-025  #Prozedur zum Überprüfen der Formel
+025  #Prozedur zum ï¿½berprï¿½fen der Formel
 026  #==================================
 027  proc check {schaltung} {
 028  global letters zeichen
@@ -41,7 +41,7 @@
 041
 042          #Falsche Zeichen
 043          if {[lsearch $letters [string index $schaltung $i]]<0 && [lsearch $zeichen [string index $schaltung $i]]<0} {
-044                  tk_dialog .error "Fehler!" "Ungültiges Zeichen \" [string index $schaltung $i] \" wurde verwendet!" "error" 0 "Ok"; return 0
+044                  tk_dialog .error "Fehler!" "Ungï¿½ltiges Zeichen \" [string index $schaltung $i] \" wurde verwendet!" "error" 0 "Ok"; return 0
 045          }
 046
 047          #Klammer und Buchstabe
@@ -106,7 +106,7 @@
 106
 107   set laenge [llength $eing]
 108
-109   #Möglichkeiten berechnen
+109   #Mï¿½glichkeiten berechnen
 110   set moeglichkeiten [expr int(pow(2,$laenge))]
 111
 112   #Anfangsbelegung festlegen
@@ -115,7 +115,7 @@
 115          lappend belegung "0"
 116   }
 117
-118   #Textinhalt löschen
+118   #Textinhalt lï¿½schen
 119   .unten.text delete 1.0 end
 120
 121   #Tabelle einrichten
@@ -126,7 +126,7 @@
 126   set pos [expr $laenge-1]
 127   .unten.text insert end "Ergebnis"
 128
-129   #Alle Möglichkeiten durchgehen
+129   #Alle Mï¿½glichkeiten durchgehen
 130   for {set i 0} {$i<$moeglichkeiten} {incr i} {
 131
 132  	.unten.text insert end "\n"
@@ -145,7 +145,7 @@
 145  	#Ergebnis ausgeben
 146   	.unten.text insert end "     [expr $temp]\t"
 147
-148   	#Belegung ändern
+148   	#Belegung ï¿½ndern
 149  	set belegung [lreplace $belegung $pos $pos [expr [lindex $belegung $pos]+1]]
 150  	for {set j 0} {$j<$laenge} {incr j} {
 151                  if {[lindex $belegung $j]>1} {
@@ -225,4 +225,4 @@
 225
   wm title . "Wahrheitswertetabellen"
 
-# © ® Stephan Behnke ™
+# ï¿½ ï¿½ Stephan Behnke ï¿½

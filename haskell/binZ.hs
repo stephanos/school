@@ -1,13 +1,10 @@
--- Binäre, ganze Zahl
--- © ® Stephan Behnke ™
--- Homepage: www.stephan.behnke.de.vu
--- E-Mail: stephan.behnke@gmx.net
+-- BinÃ¤re, ganze Zahl
 
 
 module BinZ where
 
 
--- Binäre, natürliche Zahl importieren
+-- Binï¿½re, natï¿½rliche Zahl importieren
 import "binN.hs"
 
 
@@ -15,31 +12,31 @@ import "binN.hs"
 -- Spezifikation --
 -------------------
 
-convertZ    :: BinZ	  -> Int	    -- Wandelt eine Binärzahl in Int um
+convertZ    :: BinZ	  -> Int	    -- Wandelt eine Binï¿½rzahl in Int um
 wechsel     :: Vorzeichen -> Vorzeichen	    -- Vorzeichen wechseln
-makeBinZ    :: [Char] 	  -> BinZ	    -- Binärzahl aus String erstellen
-zahlN       :: BinZ 	  -> BinN	    -- Natürliche Zahl aus ganzer Binärzahl entnehmen
+makeBinZ    :: [Char] 	  -> BinZ	    -- Binï¿½rzahl aus String erstellen
+zahlN       :: BinZ 	  -> BinN	    -- Natï¿½rliche Zahl aus ganzer Binï¿½rzahl entnehmen
 zweiK       :: BinZ 	  -> BinZ	    -- 2-Komplement bilden
-verkuerzenZ :: BinZ 	  -> BinZ	    -- Führende Nullen aus Zahl entfernen
+verkuerzenZ :: BinZ 	  -> BinZ	    -- Fï¿½hrende Nullen aus Zahl entfernen
 gegenzahlZ  :: BinZ 	  -> BinZ	    -- Gegenzahl bilden (inverse Element)
-incrZ	    :: BinZ	  -> BinZ	    -- Zahl um 1 erhöhen
+incrZ	    :: BinZ	  -> BinZ	    -- Zahl um 1 erhï¿½hen
 decrZ	    :: BinZ	  -> BinZ	    -- Zahl um 1 verringern
-multZ       :: BinZ 	  -> BinZ -> BinZ   -- 2 ganze Binärzahlen multiplizieren
-subZ        :: BinZ 	  -> BinZ -> BinZ   -- 2 ganze Binärzahlen subtrahieren
-addZ        :: BinZ 	  -> BinZ -> BinZ   -- 2 ganze Binärzahlen addieren
-groesserZ   :: BinZ       -> BinZ -> BinNr  -- Ermittelt größere von 2 Zahlen
-betragZ     :: BinZ	  -> BinZ	    -- Betrag einer ganzen Binärzahl bilden
+multZ       :: BinZ 	  -> BinZ -> BinZ   -- 2 ganze Binï¿½rzahlen multiplizieren
+subZ        :: BinZ 	  -> BinZ -> BinZ   -- 2 ganze Binï¿½rzahlen subtrahieren
+addZ        :: BinZ 	  -> BinZ -> BinZ   -- 2 ganze Binï¿½rzahlen addieren
+groesserZ   :: BinZ       -> BinZ -> BinNr  -- Ermittelt grï¿½ï¿½ere von 2 Zahlen
+betragZ     :: BinZ	  -> BinZ	    -- Betrag einer ganzen Binï¿½rzahl bilden
 
 
 ---------
 -- ADT --
 ---------
 
--- Vorzeichen der Binärzahl
+-- Vorzeichen der Binï¿½rzahl
 data Vorzeichen = P | M
 	deriving(Eq)
 
--- Binäre, ganze Zahl
+-- Binï¿½re, ganze Zahl
 data BinZ = EZ | Z Vorzeichen BinN
 	deriving(Eq)
 
@@ -78,7 +75,7 @@ convertZ (EZ)    = error "Zahl nicht definiert!"
 convertZ (Z P n) = convertN n
 convertZ (Z M n) = (-1) * convertN n
 
--- Größere Zahl ermitteln
+-- Grï¿½ï¿½ere Zahl ermitteln
 groesserZ (Z M n1) (Z M n2) = (-|) (groesserN n1 n2)
 groesserZ (Z P n1) (Z P n2) = groesserN n1 n2
 groesserZ (Z P n1) (Z M n2) = L
@@ -90,7 +87,7 @@ halbierenZ (Z v n) = (Z v (halbierenN n))
 -- Verdopplung
 verdoppelnZ (Z v n) = (Z v (verdoppelnN n))
 
--- Zahl erhöhen
+-- Zahl erhï¿½hen
 incrZ z = addZ z (Z P (N (EN) L))
 
 -- Zahl verringern
@@ -115,7 +112,7 @@ ggtZ'' n1 n2
 gegenzahlZ (EZ)    = error "Keine Ziffern vorhanden"
 gegenzahlZ (Z v n) = (Z (wechsel v) n)
 
--- Führende Nullen eleminieren
+-- Fï¿½hrende Nullen eleminieren
 verkuerzenZ (EZ) = error "Keine Ziffern vorhanden"
 verkuerzenZ (Z v n) = (Z v (verkuerzenN n))
 
@@ -123,18 +120,18 @@ verkuerzenZ (Z v n) = (Z v (verkuerzenN n))
 zweiK (EZ)    = EZ
 zweiK (Z v n) = (Z (wechsel v) (addN (einK n) (N (EN) L)))
 
--- Natürlichen Teil der ganzen Binärzahl zurückgeben
+-- Natï¿½rlichen Teil der ganzen Binï¿½rzahl zurï¿½ckgeben
 zahlN (EZ)    = error "Keine Zahl erstellbar"
 zahlN (Z v n) = n
 
--- Addition binärer, ganzer Zahlen
+-- Addition binï¿½rer, ganzer Zahlen
 addZ (Z P n1) (Z P n2)	     = (Z P (addN n1 n2))
 addZ (Z M n1) (Z M n2)	     = (Z M (addN n1 n2))
 addZ z1@(Z M n1) z2@(Z P n2) = subZ z2 (gegenzahlZ z1)
 addZ z1@(Z P n1) z2@(Z M n2) = subZ z1 (gegenzahlZ z2)
 addZ _ _ 		     = error "Operanten nicht definiert"
 
--- Subtraktion binärer, ganzer Zahlen
+-- Subtraktion binï¿½rer, ganzer Zahlen
 subZ z1@(Z M n1) z2@(Z P n2) = gegenzahlZ (addZ (gegenzahlZ z1) z2)
 subZ z1@(Z P n1) z2@(Z M n2) = addZ z1 (gegenzahlZ z2)
 subZ z1@(Z M n1) z2@(Z M n2) = subZ (gegenzahlZ z2) (gegenzahlZ z1)
@@ -148,7 +145,7 @@ subZ z1@(Z P n1) z2@(Z P n2) = e
                 t = angleichenN n2 n1
 subZ _ _ = error "Operanten nicht definiert"
 
--- Multiplikation binärer, ganzer Zahlen
+-- Multiplikation binï¿½rer, ganzer Zahlen
 multZ z1@(Z v1 n1) z2@(Z v2 n2)
 	| v1 == v2  = (Z P (multN n1 n2))
 	| otherwise = (Z M (multN n1 n2))

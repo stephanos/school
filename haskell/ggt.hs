@@ -1,8 +1,4 @@
 -- Funktion zur Berechnung des GgT sowie des kgV von zwei Zahlen
--- © ® Stephan Behnke ™
--- Homepage: www.stephan.behnke.de.vu
--- E-Mail: stephan.behnke@gmx.net
-
 
 ---------
 -- GGT --

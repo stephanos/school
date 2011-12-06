@@ -1,7 +1,4 @@
 -- Zeichnet ein Sierpinski-Dreieck
--- © ® Stephan Behnke ™
--- Homepage: www.stephan.behnke.de.vu
--- E-Mail: stephan.behnke@gmx.net
 
 
 import GraphicsUtils

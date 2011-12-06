@@ -1,9 +1,3 @@
-/***********************************
- * © Stephan Behnke
- * Homepage: www.tcltk.de.vu
- * E-Mail: stephan.behnke@gmx.net
- ***********************************/
-
 /* PS: Für den Befehl sqrt() den Paramter -lm an gcc anfügen */
 
 #include <time.h>
